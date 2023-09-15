@@ -10,7 +10,12 @@ const SuccessChild = (props) => {
     <div className="container">
       <p>{name || "No Name Provided"}</p>
       <p>{addr || "No Address Provided"}</p>
-      <p>{story && <SuccessStory story={story} />}</p>
+      {story && (
+        <SuccessStory
+          story={story}
+          randomNumberGenerator={props.randomNumberGenerator}
+        />
+      )}
     </div>
   );
 };

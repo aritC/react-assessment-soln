@@ -4,6 +4,20 @@ import "./Success.css";
 import SuccessChild from "./SuccessChild/SuccessChild";
 
 export default class Success extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      randomNumber: 0,
+    };
+  }
+
+  randomNumberGenerator = (randomNum) => {
+    this.setState({
+      randomNumber: randomNum,
+    });
+  };
+
   render() {
     let quotes = [
       "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
@@ -35,7 +49,9 @@ export default class Success extends Component {
           name="Arit"
           addr="Tempe,AZ"
           story="This is a success story."
+          randomNumberGenerator={this.randomNumberGenerator}
         />
+        {this.state.randomNumber !== 0 ? this.state.randomNumber : ""}
       </>
     );
   }
